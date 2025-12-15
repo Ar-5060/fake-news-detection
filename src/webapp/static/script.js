@@ -1,0 +1,1 @@
+// Reserved for future enhancements (e.g., live word count, paste handling)

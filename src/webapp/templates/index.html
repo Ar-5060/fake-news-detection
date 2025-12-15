@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <div class="hero-card">
+    <h1>Fake News <span>Detector</span></h1>
+    <p>Paste a headline & article text. Our model will estimate whether it looks
+      <strong>Real</strong> or <strong>Fake</strong>.
+    </p>
+  </div>
+</section>
+
+<section class="card form-card">
+  <form method="POST">
+    <label>News Title</label>
+    <input type="text" name="title" placeholder="Type the headline" value="{{ title_in }}" required>
+
+    <label>Article Text</label>
+    <textarea name="text" placeholder="Paste the article body" rows="10" required>{{ text_in }}</textarea>
+
+    <div class="row">
+      <button type="submit" class="btn primary">Analyze</button>
+      <button type="reset" class="btn">Clear</button>
+    </div>
+  </form>
+
+  {% if prediction %}
+  <div class="result {{ 'good' if prediction=='Real' else 'bad' }}">
+    <div class="pill">Prediction</div>
+    <h2>{{ prediction }}</h2>
+    {% if proba %}
+      <p>Confidence: <strong>{{ proba }}</strong></p>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>
+
+<section id="features" class="features">
+  <div class="card">
+    <h3>Fast</h3>
+    <p>TF-IDF + Logistic Regression for low-latency decisions.</p>
+  </div>
+  <div class="card">
+    <h3>Accurate</h3>
+    <p>Upgradeable to BERT later for higher accuracy.</p>
+  </div>
+  <div class="card">
+    <h3>Interpretable</h3>
+    <p>Confusion matrix & metrics to understand performance.</p>
+  </div>
+</section>
+
+<section id="how" class="how">
+  <ol>
+    <li>Clean & split your dataset</li>
+    <li>Build TF-IDF features</li>
+    <li>Train & evaluate baseline</li>
+    <li>Serve via Flask UI</li>
+  </ol>
+</section>
+{% endblock %}
