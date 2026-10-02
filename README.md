@@ -3,36 +3,6 @@ Overview
 
 This project uses machine learning techniques to detect whether a news article is fake or real. The model is trained using Logistic Regression with TF-IDF (Term Frequency-Inverse Document Frequency) for text feature extraction. The model is then deployed through a simple Flask web application that allows users to input news articles and get predictions in real-time.
 
-Project Structure
-
-The project is divided into the following key components:
-
-project/
-│
-├── data/                        # Raw and processed data
-│   ├── processed/               # Preprocessed data (train, validation, test)
-│   └── raw/                     # Raw data
-│
-├── models/                      # Folder for saving models
-│   ├── baselines/               # Folder for baseline models
-│   │   ├── logreg.joblib        # Trained Logistic Regression model
-│   │   └── tfidf_vectorizer.joblib  # TF-IDF Vectorizer
-│
-├── experiments/                 # Folder for saving evaluation results (plots, metrics)
-│   ├── confusion_matrix.png     # Confusion matrix plot
-│   └── roc_curve.png            # ROC curve plot
-│
-├── src/                         # Source code
-│   ├── data/                    # Scripts related to data preprocessing
-│   ├── eval/                    # Scripts related to evaluation
-│   ├── features/                # Scripts related to feature extraction
-│   ├── models/                  # Scripts related to model training
-│   └── webapp/                  # Web application
-│
-├── app.py                       # Main entry point for Flask web app
-├── requirements.txt             # File listing all required Python packages
-└── README.md                    # Project overview and instructions
-
 Installation
 
 Clone the Repository:
